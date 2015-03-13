@@ -25,6 +25,37 @@ class UsersController < ApplicationController
     reset_session
     redirect_to new_user_path, notice: 'You have been logged out'
   end
+  
+  def twitter_login
+    if current_user.oauth_token
+      redirect_to "/users/#{current_user.id}"
+    else  
+      session[:twitter_request_token] = twitter_accessor.get_request_token 
+      redirect_to session[:twitter_request_token].authorize_url
+    end
+  end
+
+  def twitter_callback
+    request_token = session[:twitter_request_token]
+    access_token = twitter_accessor.authorize(request_token, params[:oauth_verifier])
+    
+    current_user.oauth_token = access_token.token
+    current_user.oauth_secret = access_token.secret
+
+    current_user.save!
+
+    redirect_to "/users/#{current_user.id}"
+
+    # Pry.start(binding)
+
+    # access_token = twitter_accessor.client.authorize(
+    #   session[:twitter_request_token]['token'],
+    #   session[:twitter_request_token]['secret'],
+    #   :oauth_verifier => params[:oauth_verifier]
+    # )
+    # current_user.oauth_token = params[:oauth_token]
+    # current_user.oauth_verifier = params[:oauth_verifier]
+  end
 
   # GET /users/1
   # GET /users/1.json
@@ -49,6 +80,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -90,6 +122,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :name, :username, :password, :password_confirmation)
+      params.require(:user).permit(:email, :name, :username, :company, :password, :password_confirmation)
     end
 end
