@@ -54,6 +54,8 @@
               <li><%= link_to tweet["text"], "https://www.twitter.com/#{tweet['user']['screen_name']}" %></li>
              <% end %>
           <% end %>
+        <% else %>
+          <%=button_to "LoginWithTwitter", '/users/twitterlogin', method: "get" %>
         <% end %>
       </ul>
     </div>
