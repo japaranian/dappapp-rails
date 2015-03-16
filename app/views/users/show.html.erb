@@ -8,6 +8,7 @@
       font-family: Sathu;
       font-size: 18pt;
       color: #0099DD;
+      margin-left: 20px;
     }
 
     #twitter_logo img{
@@ -30,32 +31,45 @@
       margin: 10px;
       width: 100%;
     }
+
+    #tweetHeader{
+      width: 100%;
+    }
+
+    #user-id{
+      display: none;
+    }
     </style>
 </head>
 
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= "Welcome, #{@user.name}" %></p>
 
-<!-- <section>
- --><!--   <div>
+<section>
+<!--   <div>
     <strong>Email:</strong>
     <%= @user.email %>
   </div>
-
   <div>
     <strong>Name:</strong>
     <%= @user.name %>
   </div>
-
   <div>
     <strong>Company:</strong>
     <%= @user.company %>
   </div> -->
+  <div style="display: inline-block">
+    
+    <div id="user-id">
+      <%= @user.id %>
+    </div>
 
-<!--   <div>
-    <strong>Username:</strong>
-    <%= @user.username %>
+    <!-- <div>
+      <strong>Username:</strong>
+      <%= @user.username %>
+    </div> -->
   </div>
-</section> -->
+  
+</section>
 
 <div id="header">
   <div id="logo"><img src="/logo.png"></div>
@@ -66,10 +80,10 @@
 
 <div id="container">
   <div id="tweets">
-    <div id="tweetlist">
-      <div id="twitter_logo"><img src="/Twitter_logo_blue.png"></div>
-<!--       Twitter feed goes here
- -->      <ul>
+      <div id="tweetlist">
+        <div id="tweetHeader"></div>
+            <div id="twitter_logo"><img src="/Twitter_logo_blue.png"></div>
+          <ul>
         <% if @user.oauth_token %>
           <% if @tweets %>
             <% @tweets.each do |tweet| %>
@@ -86,21 +100,24 @@
   <div id="nytimes">
     <div id="articles">
     <div id="nytimes_logo"><img src="/NYT_Logo.png"></div>
-
+      <ul id='nytimes'></ul>
 <!--       NY Times feed goes here
  -->    </div>
   </div>
 
   <div id="chatArea">
     <div id="company_logo"><img src="/ga.png"></div>
+    <div id="chatsection">
+    <div class="chatArea">
     <ul class="messages"> </ul>
-    <input class="inputMessage" placeholder="write monosodium glutamate here..."/>
+    </div>
+    <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
+    </div>
+    <button id="button" name="button">XXX</button>
   </div>
-</div>
 
 
-<!-- <script src="client.js"></script>
- -->
+<%= javascript_include_tag 'client.js' %>
 
 
 
