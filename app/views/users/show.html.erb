@@ -9,6 +9,27 @@
       font-size: 18pt;
       color: #0099DD;
     }
+
+    #twitter_logo img{
+      height:50px;
+      position: relative;
+      float: left;
+    }
+
+    #nytimes_logo img{
+      height:50px;
+      position: relative;
+      float: left;
+
+    }
+
+    #tweet{
+      margin-bottom: 10px;
+      box-shadow: 0px 2px 0px rgba(0,0,0,.2);
+      clear: both;
+      margin: 10px;
+      width: 100%;
+    }
     </style>
 </head>
 
@@ -46,12 +67,13 @@
 <div id="container">
   <div id="tweets">
     <div id="tweetlist">
-      Twitter feed goes here
-      <ul>
+      <div id="twitter_logo"><img src="/Twitter_logo_blue.png"></div>
+<!--       Twitter feed goes here
+ -->      <ul>
         <% if @user.oauth_token %>
           <% if @tweets %>
             <% @tweets.each do |tweet| %>
-              <li><%= link_to tweet["text"], "https://www.twitter.com/#{tweet['user']['screen_name']}" %></li>
+              <div id="tweet"><li><%= link_to tweet["text"], "https://www.twitter.com/#{tweet['user']['screen_name']}" %></li></div>
              <% end %>
           <% end %>
         <% else %>
@@ -63,8 +85,10 @@
 
   <div id="nytimes">
     <div id="articles">
-      NY Times feed goes here
-    </div>
+    <div id="nytimes_logo"><img src="/NYT_Logo.png"></div>
+
+<!--       NY Times feed goes here
+ -->    </div>
   </div>
 
   <div id="chatArea">
