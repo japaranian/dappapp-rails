@@ -13,17 +13,13 @@
 </head>
 <body>
 
-	<% if current_user %>
+<!-- 	<% if current_user %>
 	  <%= current_user.email %>
-	<% end %>
+	<% end %> -->
 
 
 	<%= yield %>
 
-
-	<% if current_user %>
-	  <%= link_to 'Log-out', login_path, method: :delete %>
-	<% end %>
 
 </body>
 </html>

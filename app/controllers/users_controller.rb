@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def landing
+    render :landing
+  end
+
   def current_user
     @current_user ||= session[:user_id] ? User.find_by_id(session[:user_id]) : nil
   end
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: "You have been logged in"
+      redirect_to user_path(@user), notice: "Welcome, #{@user.name}"
     else
       render :new, notice: 'Invalid Login'
     end
@@ -23,7 +27,8 @@ class UsersController < ApplicationController
 
   def logout
     reset_session
-    redirect_to new_user_path, notice: 'You have been logged out'
+    # redirect_to new_user_path, notice: 'You have been logged out'
+    redirect_to "/"
   end
   
   def twitter_login

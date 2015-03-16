@@ -1,0 +1,192 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+html {
+  font-weight: 300;
+}
+
+html, input {
+  font-family: Helvetica
+}
+
+html, body {
+  height: 100%;
+  margin: 20px 0px 0px 0px;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  word-wrap: break-word;
+}
+
+
+
+
+#tweets, #nytimes{
+  position: relative;
+  float: left;
+  height: 200px;
+  width:32%;
+  min-width: 200px;
+  min-height: 420px;
+  text-align: center;
+  padding: 10px;
+}
+
+#tweetlist, #articles{
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  content: "";
+  /*background-color: rgba(0,0,0,.5);*/
+  border: 1px solid rgba(0,0,0,.5);
+  border-radius: 5px;
+}
+
+
+#container{
+  width: 90%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  /*display: inline-block;*/
+}
+
+#footer{
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+#header{
+  width: 64%;
+  text-align: center;
+}
+#logo img{
+  height: 90px;
+}
+#timer{
+  height: 100px;
+  text-align: right;
+  height: 100px;
+  line-height: 100px;
+  font-size: 40pt;
+  font-weight: bold;
+}
+#startbutton{
+  line-height: 20px;
+  height: 40px;
+  font-size:20pt; 
+}
+
+#company_logo img{
+  position: relative;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#chatArea {
+  position: relative;
+  background-color: beige;
+  padding-bottom: 24px;
+  float: left;
+  min-height: 500px;
+  width:36%;
+  min-width: 200px;
+  margin-top:-90px;
+}
+.messages {
+  font-size: 150%;
+  height: 100%;
+  max-height: 310px;
+  margin: 0;
+  overflow-y: scroll;
+  padding: 10px 20px 10px 20px;
+  line-height: 25px;
+}
+
+.inputMessage {
+  font-size: 100%;
+  border: 1px solid #000;
+  padding-left: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*div{border: 1px solid red;}*/
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
