@@ -1,38 +1,26 @@
-// console.log('nytimes.js running')
+console.log('nytimes.js running')
 
-// var baseURL = "http://api.nytimes.com/svc/topstories/v1/home.json";
-//   var apiKey = "?api-key=0c446e47b3a7f6ed45dbc12101701c5a:13:71271148";
+var baseURL = "http://api.nytimes.com/svc/topstories/v1/home.json";
+  var apiKey = "";
 
-// function getResults() {
+function getResults() {
 
-//   $.ajax({
-//     url: baseURL + apiKey,
-//     dataType: 'json',
-//     success: 
-//     console.log(baseURL + apiKey)
-//     // renderResults
-//   });
-// };
+  $.ajax({
+    url: baseURL + apiKey,
+    dataType: 'json',
+    success: 
+    renderResults
+  });
+};
 
-// function renderResults(data) {
-// 	function makeResult(result){
-// 		var $nytimes = $('.nytimes');
-// 		var $byline = $('<h2>').text("Byline: " + result.byline);
-// 		$nytimes.append($byline);
-// 		return $byline;
-// 	};
-// 	var $results = $("#results");
-// 	$results.html('');
-// 	if (data["results"]) {
-// 		var results = data["results"];
-// 		console.log(parseArticle(result))
-// 	}
-// }
 
-// function parseArticle(article){
-// 	return {
-// 	byline: article["byline"]
-// 	}
-// 	getResults();
-// }
-
+function renderResults(data){
+	debugger;
+	var article = {
+		abstract: data["results"][0]["abstract"],
+		byline: data["results"][0]["byline"],
+		title: data["results"][0]["title"],
+		url: data["results"][0]["url"],
+		created_date: data["results"][0]["created_date"]
+	}
+}
