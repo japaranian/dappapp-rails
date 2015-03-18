@@ -2,12 +2,16 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :load_tweets
+  before_filter :load_tweets, except: [:nytimes]
 
   def load_tweets
     if twitter_accessor.client
-      @tweets = twitter_accessor.client.home_timeline.take(4)
+      @tweets = twitter_accessor.client.home_timeline.take(15)
     end
+  end
+
+  def nytimes
+    render text: Net::HTTP.get(URI("http://api.nytimes.com/svc/topstories/v1/home.json?api-key=#{Rails.application.secrets.nyt_apiKey}"))
   end
 
   private

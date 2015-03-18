@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <title>dapp</title>
@@ -69,82 +69,43 @@
     </div>
 
 
-    <!-- <div>
+    <div>
       <strong>Username:</strong>
       <%= @user.username %>
-    </div> -->
+    </div>
   </div>
+
+<div id="header">
+  <div id="logo"><img src="/logo.png"></div>
+</div>
   
 </section>
 
 
-<div id="header">
-  <div id="logo"><img src="/logo.png"></div>
-  <!-- <div id="timer">12:03 <button id="startbutton">Start</button></div> -->
+<div class='col-md-4 times-div'>
+  <ul id='nytimes'></ul>
 </div>
 
-
-
-<div id="container">
-  <div id="tweets">
-      <div id="tweetlist">
-        <div id="tweetHeader"></div>
-            <div id="twitter_logo"><img src="/Twitter_logo_blue.png"></div>
-          <ul>
-        <% if @user.oauth_token %>
-          <% if @tweets %>
-            <% @tweets.each do |tweet| %>
-              <div id="tweet"><li><%= link_to tweet["text"], "https://www.twitter.com/#{tweet['user']['screen_name']}" %></li></div>
-             <% end %>
-          <% end %>
-        <% else %>
-          <%=button_to "LoginWithTwitter", '/users/twitterlogin', method: "get" %>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div id="nytimes">
-    <div id="articles">
-    <div id="nytimes_logo"><img src="/NYT_Logo.png"></div>
-      <ul id='nytimes'></ul>
-<!--       NY Times feed goes here
- -->    </div>
-  </div>
-
-<!--   <div id="chatArea">
-    <div id="company_logo"><img src="/ga.png"></div>
-    <div id="chatsection">
-    <div class="chatArea">
-    <ul class="messages" id="messages"> </ul>
-    </div>
-    <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
-  <button id="button" name="button">Send</button> -->
-
-  <div class="col-md-4" style="border:5px solid green">
-  <div>
+<!-- <div class="col-md-4" style="border:5px solid green">
+  <div> -->
     <div id="chatsection">
       <div class="chatArea">
         <ul class="messages" id="messages"> </ul>
       </div>
       <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
-      <button id="submitButton" name="submitButton">XXX</button>
+      <!-- <button id="button" name="button">XXX</button> -->
     </div>
-  </div>
-</div>
+<!--   </div>
+</div> -->
 
 
 <%= javascript_include_tag 'client.js' %>
 
+<% if !@user.oauth_token %>
+  <%= button_to "LoginWithTwitter", '/users/twitterlogin', method: "get" %>
+<% end %>
 
 
-
-
-<div id="footer">
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-<!--   <%= link_to 'All Users', users_path %> |
- -->  <%= link_to 'Messages', messages_path %> |
-  <% if current_user %>
-    <%= link_to 'Log-out', login_path, method: :delete %>
-  <% end %>
-</div>
+<div class="footer">
+  
+>>>>>>> jessiesamuelson-master

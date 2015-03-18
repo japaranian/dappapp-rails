@@ -16,3 +16,140 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+#chatsection {
+  border: 5px solid black;
+  float: left;
+  right: 0;
+  width: 400px;
+  position: fixed;
+  margin-right: 50px;
+}
+
+html {
+  font-weight: 300;
+}
+
+html, input {
+  font-family: Helvetica
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  word-wrap: break-word;
+}
+
+.chatArea {
+  background-color: #0099DD;
+  padding-bottom: 10px;
+  /*border: 1px solid red;*/
+}
+
+.messages {
+  font-size: 150%;
+  height: 300px;
+  margin: 0;
+  overflow-y: scroll;
+  padding: 10px 20px 10px 20px;
+}
+
+.inputMessage {
+  font-size: 100%;
+  border: 1px solid #000;
+  bottom: 0;
+  /*height: 60px;*/
+  /*right: 0;*/
+  /*outline: none;*/
+  padding-left: 10px;
+  /*position: relative;*/
+  width: 100%;
+}
+
+#header{
+  width: 64%;
+  text-align: center;
+}
+
+#logo img{
+  height: 90px;
+}
+
+#tweets {
+  position: relative;
+  float: left;
+  /*height: 200px;*/
+  width:32%;
+/*  min-width: 200px;
+  min-height: 420px;*/
+  width: 400px;
+  text-align: center;
+  padding: 10px;
+  overflow: scroll;
+}
+
+#tweetlist, #articles{
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  content: "";
+  /*background-color: rgba(0,0,0,.5);*/
+  /*border: 1px solid rgba(0,0,0,.5);*/
+  border-radius: 5px;
+}
+
+
+#container{
+  width: 100%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  /*display: inline-block;*/
+}
+
+#twitter_logo img{
+    height:50px;
+    position: relative;
+    float: left;
+}
+
+.footer{
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /*display: none;*/
+}
+
+#user-id {
+  display: none;
+}
+
+
+
+.left {
+  float: left;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.right {
+  float: right;
+  /*padding: 100px;*/
+}
+
+.title {
+  color: #0099DD;
+}
+
+.times-div {
+  width: 400px;
+  height: 700px;
+  overflow: scroll;
+}
