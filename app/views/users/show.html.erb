@@ -68,6 +68,7 @@
       <%= @user.id %>
     </div>
 
+
     <!-- <div>
       <strong>Username:</strong>
       <%= @user.username %>
@@ -75,6 +76,7 @@
   </div>
   
 </section>
+
 
 <div id="header">
   <div id="logo"><img src="/logo.png"></div>
@@ -110,17 +112,26 @@
  -->    </div>
   </div>
 
-  <div id="chatArea">
+<!--   <div id="chatArea">
     <div id="company_logo"><img src="/ga.png"></div>
     <div id="chatsection">
     <div class="chatArea">
-    <ul class="messages"> </ul>
+    <ul class="messages" id="messages"> </ul>
     </div>
     <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
+  <button id="button" name="button">Send</button> -->
+
+  <div class="col-md-4" style="border:5px solid green">
+  <div>
+    <div id="chatsection">
+      <div class="chatArea">
+        <ul class="messages" id="messages"> </ul>
+      </div>
+      <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
+      <button id="submitButton" name="submitButton">XXX</button>
     </div>
   </div>
-  <button id="button" name="button">Send</button>
-
+</div>
 
 
 <%= javascript_include_tag 'client.js' %>
