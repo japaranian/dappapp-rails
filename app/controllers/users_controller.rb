@@ -5,6 +5,13 @@ class UsersController < ApplicationController
     @current_user ||= session[:user_id] ? User.find_by_id(session[:user_id]) : nil
   end
 
+  def dirty
+    Rails.logger.info "Wtf mate: #{session.to_json}"
+    Rails.logger.info "Wtf mate: #{current_user.class} #{current_user.as_json}"
+    Rails.logger.info "Wtf mate: #{params}"
+    render nothing: true
+  end
+
   # GET /users
   # GET /users.json
   def index
@@ -15,15 +22,15 @@ class UsersController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: "You have been logged in"
+      redirect_to user_path(@user)
     else
-      render :new, notice: 'Invalid Login'
+      render :new
     end
   end
 
   def logout
     reset_session
-    redirect_to new_user_path, notice: 'You have been logged out'
+    redirect_to new_user_path
   end
   
   def twitter_login
@@ -82,7 +89,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -96,7 +103,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -110,7 +117,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url}
       format.json { head :no_content }
     end
   end

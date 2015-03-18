@@ -15,38 +15,52 @@
     <strong>Company:</strong>
     <%= @user.company %>
   </div> -->
+  <div style="display: inline-block">
+    
+    <div id="user-id">
+      <%= @user.id %>
+    </div>
 
-  <div>
-    <strong>Username:</strong>
-    <%= @user.username %>
+    <div>
+      <strong>Username:</strong>
+      <%= @user.username %>
+    </div>
   </div>
+
+<div id="header">
+  <div id="logo"><img src="/logo.png"></div>
+</div>
+  
 </section>
 
 <% if @user.oauth_token %>
   <%= render 'shared/tweets' %>
 <% end %>
 
-<div class='col-md-4' style="border:5px solid red">
-  NY Times feed goes here
+<div class='col-md-4 times-div'>
+  <ul id='nytimes'></ul>
 </div>
 
-<div class="col-md-4" style="border:5px solid green">
-  <div>
-    <div class="chatArea">
-      <ul class="messages"> </ul>
+<!-- <div class="col-md-4" style="border:5px solid green">
+  <div> -->
+    <div id="chatsection">
+      <div class="chatArea">
+        <ul class="messages" id="messages"> </ul>
+      </div>
+      <input class="inputMessage" id="input" placeholder="write monosodium glutamate here..."/>
+      <!-- <button id="button" name="button">XXX</button> -->
     </div>
-    <input class="inputMessage" placeholder="write monosodium glutamate here..."/>
-  </div>
+<!--   </div>
+</div> -->
+
+
+<%= javascript_include_tag 'client.js' %>
+
+<% if !@user.oauth_token %>
+  <%= button_to "LoginWithTwitter", '/users/twitterlogin', method: "get" %>
+<% end %>
+
+
+<div class="footer">
+  
 </div>
-
-
-<script src="client.js"></script>
-
-
-
-
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'All Users', users_path %>
-<%= link_to 'Messages', messages_path %>
