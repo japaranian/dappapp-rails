@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def landing
-    render :landing
-  end
-
   def current_user
     @current_user ||= session[:user_id] ? User.find_by_id(session[:user_id]) : nil
   end

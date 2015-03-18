@@ -1,5 +1,4 @@
 var ws = new WebSocket('ws://localhost:4000');
-
 // var ws = new WebSocket('ws:will.princesspeach.nyc:7000');
 
 
@@ -8,7 +7,6 @@ window.onload = function(){
   var idnum = parseInt(idtext);
 
   // var ws = new WebSocket( "http://dapperdragons.herokuapp.com/users/" + idnum )
-
 
   ws.addEventListener('open', function(evt){
 
@@ -37,7 +35,6 @@ window.onload = function(){
         console.log(idnum);
         var url = "http://localhost:3000/users/" + idnum + ".json"
 
-
         // var url = "http://dapperdragons.herokuapp.com/users/" + idnum + ".json"
 
         var xhr = new XMLHttpRequest();
@@ -59,7 +56,6 @@ window.onload = function(){
           var userMessage = JSON.stringify(object);
           console.log(userMessage);
           ws.send(userMessage);
-
           inputbox.value = "";
 
         });
@@ -79,7 +75,6 @@ window.onload = function(){
       var linkmsg = parsed.text;
 
       var httpParse = parsed.text.substring(0, 5).trim();
-
       if (httpParse === "http" || httpParse === "http:" || httpParse === "https"){
         var length = parsed.text.length;
         var picurl = parsed.text.substring(length-3, length);
@@ -91,7 +86,6 @@ window.onload = function(){
         }
       };
 
-
       if (parsed.text == ""){
         alert("Cannot send empty message Son")
       }
@@ -100,7 +94,6 @@ window.onload = function(){
 
       var messages = document.getElementById('messages');
       messages.appendChild(chatlist);
-
       messages.scrollTop = messages.scrollHeight;
     });
 
