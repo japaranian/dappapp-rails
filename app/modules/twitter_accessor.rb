@@ -18,7 +18,8 @@ class TwitterAccessor
 	end
 
 	def get_request_token
-		request_token = client.request_token(:oauth_callback => 'http://localhost:3000/users/twitter_callback')
+		request_token = client.request_token(:oauth_callback => 'http://dapperdragons.herokuapp.com/users/twitter_callback')
+		
 
 		# 'http://localhost:3000/users/twitter_callback'
 			
